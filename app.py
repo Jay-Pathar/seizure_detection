@@ -23,5 +23,5 @@ def predict():
     result = "Seizure Detected" if prediction[0] == 1 else "No Seizure Detected"
     return render_template('index.html', result=result)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
