@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seizure Detection App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Seizure Detection App</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="excel_file">
+            <button type="submit" class="predict-button">Predict</button>
+            <button type="button" class="restart-button" name="restart">Restart</button>
+        </form>
+        
+        
+        {% if result %}
+        <p class="result">Prediction Result: {{ result }}</p>
+        {% endif %}
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const restartButton = document.querySelector(".restart-button");
+    
+            restartButton.addEventListener("click", function () {
+                // Redirect to the home page to restart the process
+                window.location.href = "/";
+            });
+        });
+    </script>  
+</body>
+</html>
